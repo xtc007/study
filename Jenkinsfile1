@@ -30,8 +30,8 @@ pipeline {
                 expression { params.MyLang == 'c' || params.MyLang == 'All'}
             }
             steps {
-                sh gcc test.c -o test
-                sh ./test
+                
+                sh ./a.out
                 echo 'C'
             }
         }
