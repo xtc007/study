@@ -3,31 +3,34 @@ pipeline {
     parameters {
         choice(
             name: 'MyLang',
-            choices: "all\Bash\Python\c",
+            choices: "all\bash\python\c",
             description: 'Chose your language.
     }
     stages {
-        stage('Python') {
+        stage('python') {
             when {
                 expression { params.MyLang == 'Python' || params.MyLang == 'All'}
             }
             steps {
                 echo 'Python'
-            }
+                sh  test.py
+            } 
         }
-        stage('Bash') {
+        stage('bash') {
             when {
                 expression { params.MyLang == 'Bash' || params.MyLang == 'All'}
             }
             steps {
+                sh script.sh
                 echo 'Bash'
             }
         }
-        stage('C') {
+        stage('c') {
             when {
                 expression { params.MyLang == 'C' || params.MyLang == 'All'}
             }
             steps {
+                sh gcc test.c
                 echo 'C'
             }
         }
