@@ -3,7 +3,7 @@ pipeline {
     parameters {
         choice(
             name: 'MyLang',
-            choices: "all\bash\python\c"
+            choices: "all\nbash\npython\nc"
             description: 'Chose your language.
     }
     stages {
