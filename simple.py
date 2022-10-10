@@ -5,7 +5,7 @@ last_name=input("Enter your last name")
 #show result:
 print(name,last_name)
 format=print(f"Your name is:{name}",f"Your last name:{last_name} ")
-file=open("Simple.txt","w")
+file=open("base.txt","w")
 file.write(name)
 file.write("\n")
 file.write(last_name)
