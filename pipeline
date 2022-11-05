@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+            
+    
+    stages {
+        stage('Build alpcon') {
+            
+           steps {
+                sh "docker build --t alpcon ." 
+                
+            } 
+        }
+        stage('Check Container') {
+            steps {
+		sh'''
+		if !(docker ps | grep alpcon)
+		then docker run -it alpcon
+		fi'''
+		
+
+
+
+
+
+            }
+        }
+        stage('Kiling Container') {   
+         steps {
+               	sh docker stop $(docker ps -l -q)
+		sh echo "The test was failed"
+
+               
+            }
+        }
+  
+    }
+}
+
+#time to run for container 10s,
+kill container
+echo build failed
+build succes
