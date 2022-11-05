@@ -1,8 +1,8 @@
 pipeline {
     agent any
      environment {
-     name="Nikolay"
-     last_name="Bada"
+     name= "Nikolay"
+     last_name= "Bada"
      }
             
     
