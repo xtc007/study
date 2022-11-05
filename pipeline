@@ -26,8 +26,8 @@ pipeline {
         }
         stage('Kiling Container') {   
          steps {
-               	sh docker stop -t 15 $(docker ps -l -q)
-		sh echo "The test was failed"
+               	sh '''docker stop $(docker ps -l -q)
+		sh echo "The test was failed"'''
 
                
             }
