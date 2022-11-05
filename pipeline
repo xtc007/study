@@ -6,8 +6,8 @@ pipeline {
         stage('Build alpcon') {
             
            steps {
-	   	  sh '''chmod 777 docker
-                 "docker build -t alpcon ."''' 
+	   	
+               sh "docker build -t alpcon ." 
 			                
             } 
         }
