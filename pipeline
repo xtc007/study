@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Kiling Container') {   
          steps {
-               	sh docker stop $(docker ps -l -q)
+               	sh docker stop -t 15 $(docker ps -l -q)
 		sh echo "The test was failed"
 
                
@@ -35,8 +35,3 @@ pipeline {
   
     }
 }
-
-#time to run for container 10s,
-kill container
-echo build failed
-build succes
