@@ -6,7 +6,7 @@ pipeline {
         stage('Build alpcon') {
             
            steps {
-                sh "docker build --t alpcon ." 
+                sh "docker build -t alpcon ." 
                 
             } 
         }
@@ -27,7 +27,7 @@ pipeline {
         stage('Kiling Container') {   
          steps {
                	sh ''' docker stop $(docker ps -l -q)
-		 echo "The test was failed" '''
+		echo "The test was failed" '''
 
                
             }
