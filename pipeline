@@ -1,5 +1,9 @@
 pipeline {
     agent any
+     environment {
+     name=Nikolay
+     last_name=Bada
+     }
             
     
     stages {
