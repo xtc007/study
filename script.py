@@ -1,5 +1,6 @@
 #!usr/bin/python3
 #Enter your name and last name.
+import time
 name=input("Please enter your name:").upper()
 last_name=input("Enter your last name").upper()
 #show result:
