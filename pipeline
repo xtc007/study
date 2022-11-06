@@ -3,6 +3,7 @@ pipeline {
      environment {
      name= "Nikolay"
      last_name= "Bada"
+     $workdir
      }
             
     
@@ -19,8 +20,8 @@ pipeline {
             steps {
 		sh'''
 		if !(docker ps | grep alpcon)
-		then docker run -i -v $pwd:/home/script/ alpcon
-		fi'''
+			then docker run -i -v $pwd:/home/script/ alpcon
+			fi'''
 		
 
 
@@ -31,9 +32,14 @@ pipeline {
         }
         stage('Kiling Container') {   
          steps {
-               	sh ''' 	if (docker ps | grep alpcon)
-			then docker stop $(docker ps -l -q)
-			echo "The test was failed" '''
+               	sh ''' 	      
+				sleep 10s
+				if (docker ps | grep alpcon)
+				then docker stop $(docker ps -l -q)
+				echo "The test was failed" 
+				else "The test was  successful"
+				 
+				fi'''
 
                
             }
