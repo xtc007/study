@@ -14,6 +14,13 @@ pipeline {
 		if !(docker ps | grep alpcon)
 		then docker run -i -v $pwd:/home/script/ alpcon
 		fi'''
+		sh '''
+		sleep 10
+		if (docker ps | grep alpcon)
+		then docker stop $(docker ps -l -q)
+		echo "The test was failed" 
+		else echo "The test was successful"
+		fi'''		
 		
 
 
@@ -22,15 +29,15 @@ pipeline {
 
             }
         }
-        stage('Kiling Container') {   
-         steps {
-		sh '''
-		sleep 10
-		if (docker ps | grep alpcon)
-		then docker stop $(docker ps -l -q)
-		echo "The test was failed" 
-		else echo "The test was successful"
-		fi'''		
+        #stage('Kiling Container') {   
+         #steps {
+		#sh '''
+		#sleep 10
+		#if (docker ps | grep alpcon)
+		#then docker stop $(docker ps -l -q)
+		#echo "The test was failed" 
+		#else echo "The test was successful"
+		#fi'''		
             }
         }
   
