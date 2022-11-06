@@ -4,7 +4,6 @@ pipeline {
         stage('Build alpcon') {
             
            steps {
-	   	
                sh "docker build -t alpcon ." 
 			                
             } 
@@ -26,16 +25,10 @@ pipeline {
         stage('Kiling Container') {   
          steps {
 		sh '''
-		if (docker ps | grep alpcon);
+		if (docker ps | grep alpcon)
 		then docker stop $(docker ps -l -q)
 		echo "The test was failed" 
-		else "The test was  successful"
-		fi'''
-               	
-				
-			
-
-               
+		fi'''		
             }
         }
   
