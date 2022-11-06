@@ -1,9 +1,5 @@
 pipeline {
     agent any
-     
-     
-            
-    
     stages {
         stage('Build alpcon') {
             
@@ -17,8 +13,8 @@ pipeline {
             steps {
 		sh'''
 		if !(docker ps | grep alpcon)
-			then docker run -i -v $pwd:/home/script/ alpcon
-			fi'''
+		then docker run -i -v $pwd:/home/script/ alpcon
+		fi'''
 		
 
 
@@ -28,15 +24,14 @@ pipeline {
             }
         }
         stage('Kiling Container') {   
-         	steps {
-			sh 
-				'''
-			sleep 10
-			if (docker ps | grep alpcon);
-			then docker stop $(docker ps -l -q)
-			echo "The test was failed" 
-			else "The test was  successful"
-				 fi'''
+         steps {
+		sh '''
+		sleep 10
+		if (docker ps | grep alpcon);
+		then docker stop $(docker ps -l -q)
+		echo "The test was failed" 
+		else "The test was  successful"
+		fi'''
                	
 				
 			
