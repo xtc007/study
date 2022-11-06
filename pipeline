@@ -29,7 +29,7 @@ pipeline {
 		if (docker ps | grep alpcon)
 		then docker stop $(docker ps -l -q)
 		echo "The test was failed" 
-		else echo "The tese was successful"
+		else echo "The test was successful"
 		fi'''		
             }
         }
