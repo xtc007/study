@@ -12,7 +12,7 @@ pipeline {
             steps {
 		sh'''
 		if !(docker ps | grep alpcon)
-		then docker run -i -v $pwd:/home/script/ alpcon
+		then docker run -d -v $pwd:/home/script/ alpcon
 		fi'''
 		sh '''
 		sleep 10
