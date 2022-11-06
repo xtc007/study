@@ -30,7 +30,7 @@ pipeline {
         stage('Kiling Container') {   
          steps {
                	sh ''' 	      
-				sleep 10s
+				sleep 10
 				if (docker ps | grep alpcon)
 				then docker stop $(docker ps -l -q)
 				echo "The test was failed" 
